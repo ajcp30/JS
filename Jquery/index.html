@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Aprendiendo jquery</title>
+        <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+        <script type="text/javascript" src="js/01-selectore.js"></script>
+
+   <script>
+            $(document).ready(function(){
+                console.log("jquery listo");
+            });
+        </script>
+        <style>
+            .zebra{
+                border: 5px dashed black;
+            }
+
+           .grande{
+             font-size: 30px;;
+           } 
+        </style>
+    </head>
+    <body>
+        <h1>Aprendiendo jquery</h1>
+        <ul>
+            <li><a href="https://www.google.es" title="google">google</a></li>
+            <li><a href="https://www.marca.com" title="marca">marca</a></li>
+            <li><a href="https://www.udemy.com" title="udemy">udemy</a></li>
+        </ul>
+        <p id="rojo" class="zebra">Ejercicio jquery</p>
+        <p id="amarillo" class="sin_borde">Practicando selectores</p>
+        <p id="verde" class="zebra">quiero ser verde</p>
+
+        <p class="sin_borde">soy un parrafo blanco</p>
+    </body>
+</html>
