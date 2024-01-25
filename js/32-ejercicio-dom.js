@@ -1,41 +1,58 @@
-document.addEventListener("DOMContentLoaded", function () {
-    // Espera a que el DOM esté completamente cargado
+'use strict'
 
-    // Obtener referencias a los elementos del formulario y resultado
-    var formulario = document.getElementById("miFormulario");
-    var nombreInput = document.getElementById("nombre");
-    var apellidosInput = document.getElementById("apellidos");
-    var edadInput = document.getElementById("edad");
-    var resultadoDiv = document.getElementById("resultado");
+window.addEventListener('load', function(){
+	console.log("DOM cargado!!");
 
-    // Ocultar el div de resultados inicialmente
-    resultadoDiv.style.display = "none";
+	var formulario = document.querySelector("#formulario");
+	var box_dashed = document.querySelector(".dashed");
+	box_dashed.style.display = "none";
 
-    // Agregar evento al formulario
-    formulario.addEventListener("submit", function (event) {
-        event.preventDefault();
-        mostrarDatos();
-    });
+	formulario.addEventListener('submit', function(){
+		console.log("Evento submit capturado");
 
-    // Agregar evento al botón para mostrar datos actuales del formulario
-    var mostrarDatosButton = document.getElementById("mostrarDatosButton");
-    mostrarDatosButton.addEventListener("click", function () {
-        mostrarDatos();
-    });
+		var nombre = document.querySelector("#nombre").value;
+		var apellidos = document.querySelector("#apellidos").value;
+		var edad = parseInt(document.querySelector("#edad").value);
 
-    // Función para mostrar datos en el div de resultado
-    function mostrarDatos() {
-        var nombre = nombreInput.value;
-        var apellidos = apellidosInput.value;
-        var edad = edadInput.value;
+		if(nombre.trim() == null || nombre.trim().length == 0){
+			alert("El nombre no es válido");
+			document.querySelector("#error_nombre").innerHTML = "El nombre no es valido";
+			return false;
+		}else{
+			document.querySelector("#error_nombre").style.display = "none";
+		}
 
-        // Verificar si hay datos antes de mostrar el resultado
-        if (nombre || apellidos || edad) {
-            var mensaje = "Nombre: " + nombre + "<br>Apellidos: " + apellidos + "<br>Edad: " + edad;
-            resultadoDiv.innerHTML = mensaje;
-            resultadoDiv.style.display = "block"; // Mostrar el div de resultados
-        } else {
-            resultadoDiv.style.display = "none"; // Ocultar el div de resultados si no hay datos
-        }
-    }
+		if(apellidos.trim() == null || apellidos.trim().length == 0){
+			alert("Los apellidos no son válidos");
+			return false;
+		}
+
+		console.log(edad);
+		if(edad == null || edad <= 0 || isNaN(edad)){
+			alert("La edad no es válida");
+			return false;
+		}
+
+		box_dashed.style.display = "block";
+
+		var p_nombre = document.querySelector("#p_nombre span");
+		var p_apellidos = document.querySelector("#p_apellidos span");
+		var p_edad = document.querySelector("#p_edad span");
+
+		p_nombre.innerHTML = nombre;
+		p_apellidos.innerHTML = apellidos;
+		p_edad.innerHTML = edad;
+
+		/*
+		var datos_usuario = [nombre, apellidos, edad];
+		var indice;
+		for(indice in datos_usuario){
+			var parrafo = document.createElement("p");
+			parrafo.append(datos_usuario[indice]);
+			box_dashed.append(parrafo);
+		}
+		*/
+		
+	});
+
 });

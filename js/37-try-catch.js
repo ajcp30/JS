@@ -1,11 +1,10 @@
-'use strict';
 
-try {
-    var year = 2019;
-    alert(year);
-    console.log(decodeURIComponent("https://www.google.es"));
-} catch (error) {
-    console.log(error);
-    alert("Problema en la App")
+try{
+	var year = 2019;
+	alert(year);
+	var vector = new Array(99999999999999999);
+
+}catch(error){
+	console.log(error)
+	alert("A ocurrido un error en el código");
 }
-
