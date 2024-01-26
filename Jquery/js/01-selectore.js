@@ -38,5 +38,10 @@ $(document).ready(function(){
           $('[title="google"]').css('background','green');
           $('[title="marca"]').css('background','red')
           $('[title="udemy"]').css('background','yellow')
+          //otros
+          //$('p,a').addClass('margen-superior');
+          //var busqueda = $("#caja").find('.resaltado');
 
+          var busqueda = $("#caja .resaltado").eq(0).parent().parent().find('[title="Google"]');
+          console.log(busqueda);
     });
