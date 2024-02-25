@@ -1,53 +1,55 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <title>Aprendiendo jquery</title>
-        <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
-        <script type="text/javascript" src="js/01-selectore.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<title>Aprendiendo jQuery</title>
+		<!--
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	  crossorigin="anonymous"></script>
+		-->
+		<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+		<script type="text/javascript" src="js/01-selectores.js"></script>
+		<style>
+			.zebra{
+				border: 5px dashed black;
+			}
 
-   <script>
-            $(document).ready(function(){
-                console.log("jquery listo");
-            });
-        </script>
-        <style>
-            .zebra{
-                border: 5px dashed black;
-            }
+			.grande{
+				font-size: 30px;
+			}
 
-           .grande{
-             font-size: 30px;;
-           } 
-           .margen-superior{
-               display:block;
-               margin-top:45px;
-           }
-           .resaltado{
-            border-bottom: 2px solid green ;
-           }
-        </style>
-    </head>
-    <body>
-        <h1>Aprendiendo jquery</h1>
-        <ul>
-            <li><a href="https://www.google.es" title="google">google</a></li>
-            <li><a href="https://www.marca.com" title="marca">marca</a></li>
-            <li><a href="https://www.udemy.com" title="udemy">udemy</a></li>
-        </ul>
-        <p id="rojo" class="zebra">Ejercicio jquery</p>
-        <p id="amarillo" class="sin_borde">Practicando selectores</p>
-        <p id="verde" class="zebra">quiero ser verde</p>
+			.margen-superior{
+				display:block;
+				margin-top:45px;
+			}
 
-        <p class="sin_borde">soy un parrafo blanco</p>
-        <div id="caja">
-            <p>GHola soy una caja</p>
-            <ul>
-                <li>elemeto1</li>
-                <li class="resaltado">elemeto2</li>
+			.resaltado{
+				border-bottom: 2px solid green;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Aprendiendo jQuery con Víctor Robles WEB</h1>
 
-            </ul>
-            <spam class="resaltado">soy un span</spam>
-        </div>
-    </body>
+		<ul>
+			<li><a href="https://www.google.com" title="Google">Ir a Google</a></li>
+			<li><a href="https://www.facebook.com" title="Facebook">Ir a Facebook</a></li>
+		</ul>
+
+		<p id="rojo" class="sin_borde">Ejercicios de jQuery</p>
+		<p id="amarillo" class="zebra">Practicando con selectores</p>
+		<p id="verde" class="sin_borde">Quiero ser un parrafo verde</p>
+		<p class="zebra">Soy un parrafo blanco</p>
+
+		<div id="caja">
+			<p>Hola soy una caja<p>
+			<ul>
+				<li>Elemento 1</li>
+				<li id="elemento2">Elemento 2</li>
+			</ul>
+			<span class="resaltado">Soy un span</span>
+		</div>
+
+	</body>
 </html>
