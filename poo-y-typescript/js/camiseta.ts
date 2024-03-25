@@ -1,48 +1,68 @@
-// clase (molde del objeto)
-class Camiseta{
-    // propiedades (caracteristicas del objeto)
-    // public permite poder cacceder desde cualquier lugar
-    // private solo desde la clase que se define solo se puede en el mismo sitio
-    //--> o usar metodos
-    //protect se pude aceder metodo o atributo desde la clase que lod efine 
-    // --> y desde cualquier otra parte
+// Interface
+interface CamisetaBase{
+	setColor(color);
+	getColor();
+}
 
-    private color: string;
-    private modelo: string;
-    private marca: string;
-    private talla: string;
-    private precio: number;
+// Decorador
+function estampar(logo: string){
+	return function(target: Function){
+		target.prototype.estampacion = function():void{
+			console.log("Camiseta estampada con el logo de: "+logo);
+		}
+	}
+}
 
-    // metodos (funcione o aciones del objeto)
+// Clase (molde del objeto)
+@estampar('Gucci Gang')
+class Camiseta implements CamisetaBase{
 
-    // contructor
-    constructor(color, modelo, marca, talla, precio){
-        this.color = color;
-        this.modelo = modelo;
-        this.marca = marca;
-        this.talla = talla;
-        this.precio = precio;
-    }
-    // fin constructor
+	// Propiedades (caracteristicas del objeto)
+	private color: string;
+	private modelo: string;
+	private marca: string;
+	private talla: string;
+	private precio: number;
 
-    public setColor(color){
-        this.color = color;
-    };
+	// Métodos (funciones o acciones del objeto)
+	constructor(color, modelo, marca, talla, precio){
+		this.color = color;
+		this.modelo = modelo;
+		this.marca = marca;
+		this.talla = talla;
+		this.precio = precio;
+	}
 
-    public getColor(){
-        return this.color; 
-    }   
+	public setColor(color){
+		this.color = color;
+	}
 
+	public getColor(){
+		return this.color
+	}
 
 }
 
-var camiseta = new Camiseta("rojo","manga larga","adidas","S", 10);
+// Clase hija
+class Sudadera extends Camiseta{
+	public capucha: boolean;
+
+	setCapucha(capucha: boolean){
+		this.capucha = capucha;
+	}
+
+	getCapucha():boolean{
+		return this.capucha;
+	}
+}
 
 
-var playera = new Camiseta("marron","manga corta","junk","M", 12);
+var camiseta = new Camiseta("fdas","fads","fdas","fas", 12);
+console.log(camiseta);
+camiseta.estampacion();
 
+var sudadera_nike = new Sudadera("Rojo","Manga Larga", "Nike", "L", 30);
+sudadera_nike.setCapucha(true);
+sudadera_nike.setColor("Gris Jaspeado");
 
-
-
-console.log(camiseta, playera);
-
+console.log(sudadera_nike);

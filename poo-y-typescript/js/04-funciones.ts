@@ -1,9 +1,6 @@
-//funciones
 
-function getnumber(numero:number):string{
-    return "El numero es: "+numero;
-
+function getNumero(numero:number = 12):string{
+	return "El numero es: "+numero;
 }
 
-console.log(getnumber(12));
-
+console.log(getNumero(55));
