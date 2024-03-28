@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, DoCheck, OnDestroy } from "@angular/core";
 
 @Component({
     selector: 'videojuego',
@@ -8,7 +8,7 @@ import { Component } from "@angular/core";
     
 })
 
-export class VideojuegoComponent{
+export class VideojuegoComponent implements OnInit, DoCheck, OnDestroy{
     public titulo: string;
     public listado: string;
     constructor(){
@@ -16,5 +16,23 @@ export class VideojuegoComponent{
         this.listado = "listado de videojuegos";
         console.log("componente videojuego cargado");
     }
+
+    ngOnInit(){
+        //console.log("OnInt ejecutado");
+    }
+
+    ngDoCheck(){
+       // console.log("DoCheck ejecutado")
+            
+    }
+    ngOnDestroy(){
+        //console.log("ONDestroy ejejcutado");
+    }
+
+    cambiarTitulo(){
+        this.titulo = "Nuevo titulo del componentes";
+    }
+
+
     
 }

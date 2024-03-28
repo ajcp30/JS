@@ -1,11 +1,31 @@
-<div>
-<h1>{{title}}</h1>
-<p>  vamos aprende angular juntos</p>
+<div [ngStyle]="{
+    'background': config.fondo ,
+    'padding': '20px',
+    'border' : '5px solid black',
+    'border-color':'config.color'
 
-<videojuego></videojuego>
+}">
+    <h1>{{title}}</h1>
+<p> {{descripcion}}</p>
+
+<nav>
+    <a [routerLink]="['/home']" [routerLinkActive]="['active']">Home</a><br/>
+    <a [routerLink]="['/zapatillas']" [routerLinkActive]="['active']">Zapatillas</a><br/>
+    <a [routerLink]="['/cursos/:nombre']" [routerLinkActive]="['active']">Cursos</a><br/>
+    <a [routerLink]="['/videojuego']" [routerLinkActive]="['active']">Videojuegos</a><br/>
+
+</nav>
+<hr>
+
+<!--<button (click)="ocultarVideojuegos(false)" *ngIf="mostrar_videojuegos">Ocultar</button>
+<button (click)="ocultarVideojuegos(true)" *ngIf="!mostrar_videojuegos">Mostrar</button>
+
+
+<videojuego *ngIf="mostrar_videojuegos"></videojuego>
 <zapatillas></zapatillas>
 <cursos></cursos>
+-->
+<!-- <zapatillas></zapatillas> -->
 
-
-
+<router-outlet></router-outlet>
 </div>
