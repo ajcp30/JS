@@ -9,6 +9,7 @@ import {Router, ActivatedRoute , Params} from '@angular/router'
 })
 export class CursosComponent {
   public nombre: string = '';
+  public followers: number = 0;
 
   constructor(
     private _route : ActivatedRoute,
@@ -18,8 +19,15 @@ export class CursosComponent {
   ngOnInit(){
     this._route.params.subscribe((params: Params) => {
       this.nombre = params['nombre'];
-      console.log(this.nombre);
+      this.followers = +params['followers'];
 
+
+      if(this.nombre == 'ningtuno'){
+        this._router.navigate(['/home'])
+      }
     });
+  }
+  redirigir(){
+    this._router.navigate(['/zapatillas'])
   }
 }
