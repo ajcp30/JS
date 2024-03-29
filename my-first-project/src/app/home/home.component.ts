@@ -3,27 +3,24 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrls: ['./home.component.css']
 })
-
 export class HomeComponent implements OnInit {
   public identificado: boolean;
-  constructor(){ 
-    this.identificado = false;
 
+  constructor(){
+  	this.identificado = false;
   }
 
-  ngOnInit(){
-
+  ngOnInit() {
   }
-  
+
   setIdentificado(){
-    this.identificado = true ;
+  	this.identificado = true;
   }
 
   unsetIdentificado(){
-    this.identificado = false ;
-
+  	this.identificado = false;
   }
 
 }

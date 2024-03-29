@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PeticionesService } from '../services/peticiones.service';
-import { response } from 'express';
 
 @Component({
   selector: 'app-externo',
@@ -9,55 +8,55 @@ import { response } from 'express';
   providers: [PeticionesService]
 })
 export class ExternoComponent implements OnInit {
+
   public user: any;
   public userId: any;
   public fecha: any;
-  public  new_user: any ;
-  public usuario_add: any;
+
+  public new_user: any;
+  public usuario_guardado;
+
   constructor(
-    private _PeticionesService: PeticionesService
-  ) {
-    this.userId = 1 ;
+  	private _peticionesService: PeticionesService
+  ){
+  	this.userId = 1;
     this.new_user = {
-        "name": "",
-        "job": ""
-  }
+                "name": "",
+                "job": ""
+            };
   }
 
   ngOnInit() {
-    this.fecha = new Date();
-    this.CargaUsuario();
-    
-    
+
+  	this.fecha = new Date(2019, 5, 20);
+
+  	this.cargaUsuario();
   }
 
-  onSubmit(form: any){
-    console.log("evento submit lamnzado");
-    this._PeticionesService.addUser(this.new_user).subscribe(
+  cargaUsuario(){
+  	this.user = false;
+  	this._peticionesService.getUser(this.userId).subscribe(
+  		result => {
+  			this.user = result.data;
+  		},
+  		error => {
+  			console.log(<any>error);
+  		}
+  	);
+  }
+
+  onSubmit(form){
+
+    this._peticionesService.addUser(this.new_user).subscribe(
       response => {
-        this.usuario_add = response
-        console.log(response);
+        this.usuario_guardado = response;
         form.reset();
       },
       error => {
         console.log(<any>error);
       }
-    )
-   }
+    );
 
-  CargaUsuario(){
-    this.user = false;
-    this._PeticionesService.getUser(this.userId).subscribe(
-      result => {
-          this.user = result.data; 
-      },
-      error => {
-        console.log(<any>error);
-       }
-    )
-      }
-
-    
-  
+  }
 
 }

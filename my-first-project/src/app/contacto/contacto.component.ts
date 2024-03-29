@@ -4,17 +4,24 @@ import { ContactoUsuario } from '../models/contacto.usuario';
 @Component({
   selector: 'app-contacto',
   templateUrl: './contacto.component.html',
-  styleUrl: './contacto.component.css'
+  styleUrls: ['./contacto.component.css']
 })
-export class ContactoComponent {
-  public usuario: ContactoUsuario;
-  constructor(){
-    this.usuario = new ContactoUsuario('','','','');
-  }
+export class ContactoComponent implements OnInit {
+	public usuario: ContactoUsuario;
+	public show_data;
+	
+	constructor(){
+		this.usuario = new ContactoUsuario('','','','');
+	}
 
-  onSubmit(form: any){
-    //form.reset();
-    console.log("evento submit lamnzado");
-    console.log(this.usuario);
-  }
+	ngOnInit() {
+
+	}
+
+	onSubmit(form){
+		this.show_data = this.usuario;
+		console.log(this.show_data);
+		//form.reset();
+	}
+
 }

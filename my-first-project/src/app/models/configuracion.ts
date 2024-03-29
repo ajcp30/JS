@@ -1,6 +1,6 @@
-export var configuracion = {
-    color: "red",
-    fondo: "#eee",
-    titulo: "Antonio Jose Carrasco",
-    Descripcion: "Aprendiendo Angular con Antonio Jose"
+export var Configuracion = {
+	color: "red",
+	fondo: "#eee",
+	titulo: "Master en JavaScript y Angular",
+	descripcion: "Aprendiendo Angular con Víctor Robles - victorroblesweb"
 };

@@ -1,22 +1,25 @@
-import { Injectable } from "@angular/core";
-import { Zapatilla } from "../models/zapatilla";
+import { Injectable } from '@angular/core';
+import { Zapatilla } from '../models/zapatilla';
+
 @Injectable()
 export class ZapatillaService{
-    public zapatillas: Array<Zapatilla>;
+	public zapatillas: Array<Zapatilla>;
 
-    constructor(){
-        this.zapatillas = [
-            new Zapatilla('Nike', 180, "Nike", "rojo", false),
-            new Zapatilla('li', 250, "adidas", "rojo", false),
-            new Zapatilla('fr', 55, "gay", "azul", true),
-            new Zapatilla('lm', 45, "marika", "azul", false),
-            new Zapatilla('Rb', 55, "john", "amarillo", false)
-        ];
-    }
-    getTexto(){
-        return "Hola mundo desdes ervicio";
-    }
-    getZapatillas(): Array<Zapatilla>{
-        return this.zapatillas;
-    }
+	constructor(){
+		this.zapatillas = [
+			new Zapatilla('Nike Airmax', 'Nike', 'Rojas', 40, true),
+			new Zapatilla('Reebook Classic', 'Reebook', 'Blanco', 80, true),
+			new Zapatilla('Reebook Spartan', 'Reebook', 'Negra', 180, true),
+			new Zapatilla('Nike Runner MD', 'Nike', 'Negras', 60, true),
+			new Zapatilla('Adidas Yezzy', 'Adidas', 'Gris', 180, false)
+		];
+	}
+
+	getTexto(){
+		return "Hola Mundo desde un servicio";
+	}
+
+	getZapatillas(): Array<Zapatilla>{
+		return this.zapatillas;
+	}
 }

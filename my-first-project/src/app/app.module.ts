@@ -1,19 +1,19 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-import { routing, appRoutingProviders } from './app-routing';
-import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { routing, appRoutingProviders } from './app.routing';
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppComponent } from './app.component';
 import { VideojuegoComponent } from './videojuego/videojuego.component';
 import { ZapatillasComponent } from './zapatillas/zapatillas.component';
 import { CursosComponent } from './cursos/cursos.component';
-import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ExternoComponent } from './externo/externo.component';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+
 import { CalculadoraPipe } from './pipes/calculadora.pipe';
 import { ContactoComponent } from './contacto/contacto.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,27 +24,16 @@ import { ContactoComponent } from './contacto/contacto.component';
     ExternoComponent,
     CalculadoraPipe,
     ContactoComponent
-
-    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    FormsModule ,
-    routing ,
-    HttpClientModule,
-    CommonModule
+    FormsModule,
+    routing,
+    HttpClientModule
   ],
-  
   providers: [
-    provideClientHydration(),
-    appRoutingProviders,
-    provideHttpClient(withFetch()) 
-
-    
+    appRoutingProviders
   ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export class ExternoModule { }
-
